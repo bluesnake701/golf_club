@@ -1,0 +1,64 @@
+ja:
+    enums:
+      order:
+        payment_method:
+          credit_card: "クレジットカード"
+          transfer: "銀行振込"
+        status:
+          waiting: "入金待ち"
+          confirmation: "入金確認"
+          packing: "梱包中"
+          preparing: "発送準備中"
+          sent: "発送済み"
+      order_detail:
+        shipping_status:
+          impossible: "発送不可"
+          waiting: "入荷待ち"
+          packing: "梱包中"
+          completion: "梱包完了"
+      reserf:
+        reserves_status:
+          complete: "予約済み"
+          cancel: "予約キャンセル"
+      plan:
+        round:
+          round_one: "1ラウンド"
+          round1_5: "1.5ラウンド"
+          round_two: "2ラウンド"
+          half_play: "ハーフプレー"
+        lunch:
+          with_lunch: "有り"
+          no_lunch: "無し"
+        cart:
+          with_cart: "有り"
+          no_cart: "無し"
+        caddy:
+          with_caddy: "有り"
+          no_caddy: "無し"
+        lodging:
+          with_lodging: "有り"
+          no_lodging: "無し"
+    date:
+      formats:
+        default: "%Y/%m/%d"
+        short: "%m/%d"
+        long: "%Y年%m月%d日(%a)"
+
+      day_names: [日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日]
+      abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
+
+      month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+      abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+
+      order:
+        - :year
+        - :month
+        - :day
+
+    time:
+      formats:
+        default: "%Y/%m/%d %H:%M:%S"
+        short: "%y/%m/%d %H:%M"
+        long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
+      am: "午前"
+      pm: "午後"

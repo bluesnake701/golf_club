@@ -1,0 +1,5 @@
+<h1>商品ジャンル編集</h1>
+<%= form_with model: @item_genre, url: admin_item_genre_path(@item_genre.id) do |f| %>
+ <%= f.text_field :name %>
+ <%= f.submit '編集する' %>
+<% end %>

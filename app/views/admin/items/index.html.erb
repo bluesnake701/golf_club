@@ -1,0 +1,44 @@
+<h1>商品一覧</h1>
+<table border=”1″>
+  <tr>
+    <td><%= link_to "ジャンル一覧", admin_item_genres_path %></td>
+    <td><%= link_to "新商品登録", new_admin_item_path %></td>
+    <td><%= link_to "注文履歴一覧", admin_orders_path %></td>
+  </tr>
+</table>
+<table>
+  <% @items.each do |item| %>
+  <thead>
+    <tr>
+      <th>商品画像</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>販売ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= link_to admin_item_path(item.id) do %>
+          <% if item.image.attached? %>
+            <%= image_tag item.image, size: "100x100" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "100x100" %>
+  　　    　<% end %>
+  　     <% end %>
+      </td>
+      <td><%= item.name %></td>
+      <td>¥<%= item.price %></td>
+      <td><%= item.item_genre.name %></td>
+      <td>
+        <% if item.is_active == true %>
+        販売中
+        <% else %>
+        販売停止中
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

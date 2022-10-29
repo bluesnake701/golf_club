@@ -1,0 +1,23 @@
+<h1>予約履歴一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>予約日</th>
+      <th>予約者名</th>
+      <th>予約プラン</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reserves.each do |reserf| %>
+    <tr>
+      <td>
+        <%= link_to admin_reserf_path(reserf.id) do %>
+        <%= reserf.created_at.strftime('%Y/%m/%d') %></td>
+        <% end %>
+      <td><%= reserf.customer.last_name %><%= reserf.customer.first_name %></td>
+      <td><%= reserf.plan.plan_name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

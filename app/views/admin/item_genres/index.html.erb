@@ -1,0 +1,13 @@
+<h1>商品ジャンル一覧・追加</h1>
+<%= form_with model: @item_genre, url: admin_item_genres_path do |f| %>
+ <%= f.text_field :name %>
+ <%= f.submit '新規登録' %>
+<% end %>
+<table>
+  <% @item_genres.each do |item_genre| %>
+  <tr>
+    <td><%= item_genre.name %></td>
+    <td><%= link_to "ジャンル編集", edit_admin_item_genre_path(item_genre.id) %></td>
+  </tr>
+  <% end %>
+</table>

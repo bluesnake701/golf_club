@@ -1,0 +1,21 @@
+<h1>施設詳細</h1>
+<table>
+  <tr>
+    <td>
+      <% if @institution.image.attached? %>
+       <%= image_tag @institutione.image, size: "200x200" %>
+  　   <% else %>
+    　  <%= image_tag 'no_image', size: "200x200" %>
+  　   <% end %>
+  　</td>
+  </tr>
+  <tr>
+    <td><%= @institution.name %></td>
+  </tr>
+  <tr>
+    <td><%= @institution.introduction %></td>
+  </tr>
+  <tr>
+    <td><%= link_to "施設編集", edit_admin_institution_path(@institution.id) %></td>
+  </tr>
+</table>

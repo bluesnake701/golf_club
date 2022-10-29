@@ -1,0 +1,83 @@
+<h1>プラン編集</h1>
+<%= form_with model: @plan, url: admin_plan_path(@plan.id) do |f| %>
+<table>
+  <tr>
+    <td><%= f.label :plan_name, "プラン名" %></td>
+　  <td><%= f.text_field :plan_name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :player, "プレイ人数" %></td>
+　  <td><%= f.text_field :player %>人</td>
+  </tr>
+  <tr>
+    <td><%= f.label :price, "料金" %></td>
+　  <td>¥<%= f.text_field :price %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :round, "ラウンド数" %></td>
+　  <td>
+      <%= f.radio_button :round, Plan.rounds.key(0) %>
+　    <%= f.label :round, Plan.rounds_i18n[:round_one] %>
+　  </td>
+　  <td>
+      <%= f.radio_button :round, Plan.rounds.key(1) %>
+　    <%= f.label :round, Plan.rounds_i18n[:round1_5] %>
+　  </td>
+　  <td>
+      <%= f.radio_button :round, Plan.rounds.key(2) %>
+　    <%= f.label :round, Plan.rounds_i18n[:round_two] %>
+　  </td>
+　  <td>
+      <%= f.radio_button :round, Plan.rounds.key(3) %>
+　    <%= f.label :round, Plan.rounds_i18n[:half_play] %>
+　  </td>
+  </tr>
+  <tr>
+    <td><%= f.label :lunch, "昼食" %></td>
+    <td>
+      <%= f.radio_button :lunch, Plan.lunches.key(0) %>
+　    <%= f.label :lunch, Plan.lunches_i18n[:with_lunch] %>
+　  </td>
+　  <td>
+      <%= f.radio_button :lunch, Plan.lunches.key(1) %>
+　    <%= f.label :lunch, Plan.lunches_i18n[:no_lunch] %>
+　  </td>
+  </tr>
+  <tr>
+    <td><%= f.label :cart, "カート" %></td>
+    <td>
+      <%= f.radio_button :cart, Plan.carts.key(0) %>
+　    <%= f.label :cart, Plan.carts_i18n[:with_cart] %>
+　  </td>
+　  <td>
+      <%= f.radio_button :cart, Plan.carts.key(1) %>
+　    <%= f.label :cart, Plan.carts_i18n[:no_cart] %>
+　  </td>
+  </tr>
+  <tr>
+    <td><%= f.label :caddy, "キャディー" %></td>
+    <td>
+      <%= f.radio_button :caddy, Plan.caddies.key(0) %>
+　    <%= f.label :caddy, Plan.caddies_i18n[:with_caddy] %>
+　  </td>
+　  <td>
+      <%= f.radio_button :caddy, Plan.caddies.key(1) %>
+　    <%= f.label :caddy, Plan.caddies_i18n[:no_caddy] %>
+　  </td>
+  </tr>
+  <tr>
+    <td><%= f.label :lodging, "宿泊" %></td>
+    <td>
+      <%= f.radio_button :lodging, Plan.lodgings.key(0) %>
+　    <%= f.label :lodging, Plan.lodgings_i18n[:with_lodging] %>
+　  </td>
+　  <td>
+      <%= f.radio_button :lodging, Plan.lodgings.key(1) %>
+　    <%= f.label :lodging, Plan.lodgings_i18n[:no_lodging] %>
+　  </td>
+  </tr>
+  <tr>
+    <td><%= f.submit '編集する' %></td>
+  </tr>
+</table>
+<% end %>

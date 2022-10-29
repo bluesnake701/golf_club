@@ -1,0 +1,16 @@
+<h1>コース紹介</h1>
+<div class="course-table">
+<table border=”1″>
+  <% @courses.each do |course| %>
+    <tr>
+      <td class="course-table-td">
+        <%= link_to course_path(course.id) do %>
+          <%= course.hole %>
+        <% end %>
+      </td>
+      <td class="course-table-td">par<%= course.par %></td>
+      <td class="course-table-td"><%= course.yard %>y</td>
+    </tr>
+  <% end %>
+</table>
+</div>

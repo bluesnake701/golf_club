@@ -1,0 +1,6 @@
+.course-table {
+  writing-mode: vertical-lr;
+}
+.course-table-td {
+  writing-mode: horizontal-tb;
+}

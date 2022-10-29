@@ -1,0 +1,22 @@
+<h1>コース紹介</h1>
+<table>
+  <tr>
+  <% if @course.image.attached? %>
+    <td><%= image_tag @course.image, size: "200x200" %></td>
+  <% else %>
+    </td><%= image_tag 'no_image', size: "200x200" %></td>
+  <% end %>
+  </tr>
+  <tr>
+    <td>ホール<%= @course.hole %></td>
+  </tr>
+  <tr>
+    <td>par<%= @course.par %></td>
+  </tr>
+  <tr>
+    <td><%= @course.yard %>y</td>
+  </tr>
+  <tr>
+    <td><%= @course.introduction %></td>
+  </tr>
+</table>

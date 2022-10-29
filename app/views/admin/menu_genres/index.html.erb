@@ -1,0 +1,13 @@
+<h1>料理ジャンル一覧・追加</h1>
+<%= form_with model: @menu_genre, url: admin_menu_genres_path do |f| %>
+ <%= f.text_field :name %>
+ <%= f.submit '新規登録' %>
+<% end %>
+<table>
+  <% @menu_genres.each do |menu_genre| %>
+  <tr>
+    <td><%= menu_genre.name %></td>
+    <td><%= link_to "ジャンル編集", edit_admin_menu_genre_path(menu_genre.id) %></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,48 @@
+<h2>新規会員登録</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "public/shared/error_messages", resource: resource %>
+
+  <table>
+    <thead>
+				<th></th>
+				<th></th>
+				<th></th>
+		</thead>
+		<tbody>
+		  <tr>
+		    <td>名前</td>
+		    <td><%= f.label :last_name, "(名)" %> <%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
+		    <td><%= f.label :first_name, "(姓)" %> <%= f.text_field :first_name, :placeholder =>"#{@customer.first_name}" %></td>
+		  </tr>
+		  <tr>
+		    <td>フリガナ</td>
+		    <td><%= f.label :last_name_kana, "(名)" %> <%= f.text_field :last_name_kana, :placeholder =>"#{@customer.last_name_kana}" %></td>
+		    <td><%= f.label :first_name_kana, "(姓)" %> <%= f.text_field :first_name_kana, :placeholder =>"#{@customer.first_name_kana}" %></td>
+		  </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </tr>
+      <tr>
+        <% if @minimum_password_length %>
+        <td>パスワード(<%= @minimum_password_length %>文字以上)</td>
+        <% end %>
+        <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+      </tr>
+      <tr>
+        <td>パスワード(確認用)</td>
+        <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+      </tr>
+      <tr>
+        <td><%= f.submit "新規登録" %></td>
+      </tr>
+    </tbody>
+  </table>
+
+<% end %>
+
+<h4>既に登録済みの方</h4>
+<p>
+<%= render "public/shared/links" %> からログインしてください。
+</p>
