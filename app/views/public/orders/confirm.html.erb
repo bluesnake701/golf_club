@@ -20,9 +20,9 @@
       <td>¥<%= cart_item.subtotal %></td>
     </tr>
   <% @sum += cart_item.item.add_tax_price*cart_item.amount %>
-  <% end %>
   </tbody>
 </table>
+<% end %>
 <table>
     <th>送料</th>
     <td>¥800</td>
