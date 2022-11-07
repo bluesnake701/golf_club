@@ -1,6 +1,6 @@
 <h1>プラン詳細</h1>
-<table>
 <%= form_with model: @reserf, url: reserves_path do |f| %>
+<table>
     <tr>
       <td>プラン名</td>
       <td><%= @plan.plan_name %></td>
@@ -42,5 +42,5 @@
     <tr>
       <td><%= f.submit '予約確認画面へ' %></td>
     </tr>
-<% end %>
 </table>
+<% end %>
