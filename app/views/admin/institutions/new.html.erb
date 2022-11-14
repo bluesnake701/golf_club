@@ -1,4 +1,14 @@
 <h1>新施設登録</h1>
+
+<% if @institution.errors.any? %>
+  <%= @institution.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @institution.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @institution, url: admin_institutions_path do |f| %>
 <table>
   <tr>

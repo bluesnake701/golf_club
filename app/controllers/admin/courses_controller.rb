@@ -10,8 +10,11 @@ class Admin::CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-    @course.save
-    redirect_to admin_course_path(@course.id)
+    if @course.save
+      redirect_to admin_course_path(@course.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -25,8 +28,11 @@ class Admin::CoursesController < ApplicationController
   def update
     @course = Course.find(params[:id])
     @course.update(course_params)
-    @course.save
-    redirect_to admin_course_path(@course.id)
+    if @course.save
+      redirect_to admin_course_path(@course.id)
+    else
+      render :edit
+    end
   end
 
   private

@@ -1,4 +1,15 @@
-<h1>メニュー編集</h1>
+<h1>メニュー編集</h1
+
+<% if @menu.errors.any? %>
+  <%= @menu.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @menu.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <%= form_with model: @menu, url: admin_menu_path(@menu.id) do |f| %>
 <table>
   <tr>

@@ -10,16 +10,23 @@ class Public::AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    @address.save
-    redirect_to addresses_path
+    if @address.save
+      redirect_to addresses_path
+    else
+      @addresses = Address.all
+      render :index
+    end
   end
 
 
   def update
     @address = Address.find(params[:id])
     @address.update(address_params)
-    @address.save
-    redirect_to addresses_path
+    if @address.save
+      redirect_to addresses_path
+    else
+      render :edit
+    end
   end
 
   def destroy

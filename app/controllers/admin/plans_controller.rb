@@ -9,8 +9,11 @@ class Admin::PlansController < ApplicationController
 
   def create
     @plan = Plan.new(plan_params)
-    @plan.save
-    redirect_to admin_plan_path(@plan.id)
+    if @plan.save
+      redirect_to admin_plan_path(@plan.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -24,8 +27,11 @@ class Admin::PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
     @plan.update(plan_params)
-    @plan.save
-    redirect_to admin_plan_path(@plan.id)
+    if @plan.save
+      redirect_to admin_plan_path(@plan.id)
+    else
+      render :edit
+    end
   end
 
   private

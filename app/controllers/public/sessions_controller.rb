@@ -18,8 +18,6 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
-
   def after_sign_in_path_for(resource)
     mypage_path(current_customer)
   end
@@ -28,12 +26,16 @@ class Public::SessionsController < Devise::SessionsController
     root_path
   end
 
+  protected
+
   def customer_state
     @customer = Customer.find_by(email: params[:customer][:email])
     return if !@customer
     if @customer.valid_password?(params[:customer][:password])
-      flash[:danger] = 'お客様は退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'
+      if @customer.is_active == false
+        flash[:danger] = 'お客様は退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'
         redirect_to new_customer_session_path
+      end
     end
   end
 

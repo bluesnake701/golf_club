@@ -6,4 +6,7 @@ class Menu < ApplicationRecord
   def add_tax_price
     (self.price * 1.08).round
   end
+
+  validates :name, presence: true
+  validates :price, presence: true
 end

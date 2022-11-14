@@ -1,6 +1,16 @@
 <h1>配送先編集</h1>
-<table>
+
+<% if @address.errors.any? %>
+  <%= @address.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @address.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @address, url: address_path(@address.id) do |f| %>
+<table>
   <tr>
     <td><%= f.label :name, "郵便番号" %></td>
     <td><%= f.text_field :postal_code %></td>
@@ -17,5 +27,5 @@
     <td><%= f.hidden_field :customer_id, :value => current_customer.id %></td>
     <td><%= f.submit '編集する' %></td>
   </tr>
-<% end %>
 </table>
+<% end %>

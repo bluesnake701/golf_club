@@ -6,8 +6,12 @@ class Admin::MenuGenresController < ApplicationController
 
   def create
     @menu_genre = MenuGenre.new(menu_genre_params)
-    @menu_genre.save
-    redirect_to admin_menu_genres_path
+    if @menu_genre.save
+      redirect_to admin_menu_genres_path
+    else
+      @menu_genres = MenuGenre.all
+      render :index
+    end
   end
 
   def edit
@@ -17,8 +21,11 @@ class Admin::MenuGenresController < ApplicationController
   def update
     @menu_genre = MenuGenre.find(params[:id])
     @menu_genre.update(menu_genre_params)
-    @menu_genre.save
-    redirect_to admin_menu_genres_path
+    if @menu_genre.save
+      redirect_to admin_menu_genres_path
+    else
+      render :edit
+    end
   end
 
   private

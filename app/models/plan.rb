@@ -5,4 +5,8 @@ class Plan < ApplicationRecord
   enum cart: {with_cart:0, no_cart:1}
   enum caddy: {with_caddy:0, no_caddy:1}
   enum lodging: {with_lodging:0, no_lodging:1}
+
+  validates :plan_name, presence: true
+  validates :player, presence: true
+  validates :price, presence: true
 end

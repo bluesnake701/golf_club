@@ -9,8 +9,11 @@ class Admin::InstitutionsController < ApplicationController
 
   def create
     @institution = Institution.new(institution_params)
-    @institution.save
-    redirect_to admin_institution_path(@institution.id)
+    if @institution.save
+      redirect_to admin_institution_path(@institution.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -24,8 +27,11 @@ class Admin::InstitutionsController < ApplicationController
   def update
     @institution = Institution.find(params[:id])
     @institution.update(institution_params)
-    @institution.save
-    redirect_to admin_institution_path(@institution.id)
+    if @institution.save
+      redirect_to admin_institution_path(@institution.id)
+    else
+      render :edit
+    end
   end
 
   private
