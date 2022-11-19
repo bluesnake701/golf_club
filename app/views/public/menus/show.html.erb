@@ -4,8 +4,8 @@
     <td>
       <% if @menu.image.attached? %>
         <%= image_tag @menu.image, size: "200x200" %>
-  　　　<% else %>
-    　　  <%= image_tag 'no_image', size: "200x200" %>
+      <% else %>
+        <%= image_tag asset_path('no_image.jpg'), size: "200x200" %>
   　　　<% end %>
     </td>
   </tr>
