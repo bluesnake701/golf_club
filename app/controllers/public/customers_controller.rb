@@ -10,8 +10,11 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     @customer.update(customer_params)
-    @customer.save
-    redirect_to  mypage_path(@customer.id)
+    if @customer.save
+      redirect_to mypage_path(@customer.id)
+    else
+      render :edit
+    end
   end
 
   def unsubscribe
@@ -22,8 +25,11 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @customer.update(is_active: false)
     reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    redirect_to complete_customer_path
+  end
+
+  def complete
+    @customer = Customer.find(params[:id])
   end
 
   private

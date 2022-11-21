@@ -1,12 +1,14 @@
 <h1>商品ジャンル編集</h1>
 
 <% if @item_genre.errors.any? %>
+<div class="alart">
   <%= @item_genre.errors.count %>件のエラーが発生しました
   <ul>
     <% @item_genre.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
+</div>
 <% end %>
 
 <%= form_with model: @item_genre, url: admin_item_genre_path(@item_genre.id) do |f| %>

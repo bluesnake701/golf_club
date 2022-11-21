@@ -1,12 +1,14 @@
 <h1>新メニュー登録</h1>
 
 <% if @menu.errors.any? %>
+<div class="alart">
   <%= @menu.errors.count %>件のエラーが発生しました
   <ul>
     <% @menu.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
+</div>
 <% end %>
 
 <%= form_with model: @menu, url: admin_menus_path do |f| %>

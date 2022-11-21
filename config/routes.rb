@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     patch 'customers/information:id/' => 'customers#update', as: 'update_information'
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'confirm_unsubscribe'
     patch 'customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw_customer'
+    get 'customers/:id/complete' => 'customers#complete', as: 'complete_customer'
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/confirm' => 'orders#error'
