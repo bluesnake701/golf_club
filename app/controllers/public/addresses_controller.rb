@@ -13,7 +13,7 @@ class Public::AddressesController < ApplicationController
     if @address.save
       redirect_to addresses_path
     else
-      @addresses = Address.all
+      @addresses = Address.page(params[:page])
       render :index
     end
   end
