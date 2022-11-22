@@ -1,6 +1,6 @@
 class Admin::HomesController < ApplicationController
   def top
-    @reserves = Reserf.all
+    @reserves = Reserf.page(params[:page])
   end
 
   private

@@ -35,7 +35,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-   @orders = Order.all
+   @orders = Order.page(params[:page])
    @order = Order.new
    @order_details = OrderDetail.where(order_id: @order.id)
    @cart_items = CartItem.where(customer_id: current_customer.id)

@@ -1,6 +1,6 @@
 class Public::AddressesController < ApplicationController
   def index
-    @addresses = Address.all
+    @addresses = Address.page(params[:page])
     @address = Address.new
   end
 

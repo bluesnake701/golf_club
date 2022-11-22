@@ -24,7 +24,7 @@ class Public::ReservesController < ApplicationController
   end
 
   def index
-    @reserves = Reserf.all
+    @reserves = Reserf.page(params[:page])
   end
 
   def show

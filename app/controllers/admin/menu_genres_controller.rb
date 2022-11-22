@@ -1,7 +1,7 @@
 class Admin::MenuGenresController < ApplicationController
   def index
     @menu_genre = MenuGenre.new
-    @menu_genres = MenuGenre.all
+    @menu_genres = MenuGenre.page(params[:page])
   end
 
   def create
@@ -9,7 +9,7 @@ class Admin::MenuGenresController < ApplicationController
     if @menu_genre.save
       redirect_to admin_menu_genres_path
     else
-      @menu_genres = MenuGenre.all
+      @menu_genres = MenuGenre.page(params[:page])
       render :index
     end
   end
