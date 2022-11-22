@@ -1,24 +1,38 @@
-# README
+# 森林山ゴルフクラブ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+### サイトテーマ
 
-* Ruby version
+架空のゴルフ場の公式サイト
 
-* System dependencies
+### テーマを選んだ理由
 
-* Configuration
+子供の頃からゴルフゲームが好きで、よくオリジナルのゴルフコースを作るのが好きでした。
+そこでもし架空のゴルフ場を作り、運営したらどうなるのかと思いこのテーマにしました。
 
-* Database creation
+### ターゲットユーザ
 
-* Database initialization
+初心者からプロまでのゴルフプレイヤー
 
-* How to run the test suite
+### 主な利用シーン
 
-* Services (job queues, cache servers, search engines, etc.)
+ゴルフ場利用者の予約や団体様のゴルフコンペの予約、ショップ商品の通販など。
 
-* Deployment instructions
+## 設計書
 
-* ...
+実装機能リスト
+https://docs.google.com/spreadsheets/d/1hL7G0_-1LMADitdBjyrUvIaJHYG-CCat_Cg7oBNBXt0/edit?usp=sharing
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名と URL を明記してください。
+- 使用しない場合は、使用素材の項目を README から削除してください。
