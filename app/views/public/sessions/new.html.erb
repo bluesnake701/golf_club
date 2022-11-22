@@ -2,7 +2,7 @@
 
 
 <% flash&.each do |message_type, message| %>
-  <% unless message == "translation missing: ja.devise.sessions.customer.signed_out" %>
+  <% unless message.in?(["translation missing: ja.devise.sessions.customer.signed_out", "translation missing: ja.devise.sessions.admin.signed_out"]) %>
     <div class="alart alert-<%= message_type %>"><%= message %></div>
   <% end %>
 <% end %>
