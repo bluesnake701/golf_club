@@ -1,7 +1,10 @@
 <h2>ログイン</h2>
 
+
 <% flash&.each do |message_type, message| %>
-  <div class="alart alert-<%= message_type %>"><%= message %></div>
+  <% unless message == "translation missing: ja.devise.sessions.customer.signed_out" %>
+    <div class="alart alert-<%= message_type %>"><%= message %></div>
+  <% end %>
 <% end %>
 
 <table>
