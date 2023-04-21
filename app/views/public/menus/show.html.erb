@@ -1,31 +1,36 @@
-<h1>メニュー詳細詳細</h1>
-<table>
-  <tr>
-    <td>
-      <% if @menu.image.attached? %>
-        <%= image_tag @menu.image, size: "200x200" %>
-      <% else %>
-        <%= image_tag asset_path('no_image.jpg'), size: "200x200" %>
-  　　　<% end %>
-    </td>
-  </tr>
-  <tr>
-    <td><%= @menu.name %></td>
-  </tr>
-  <tr>
-    <td>¥<%= @menu.add_tax_price.to_s(:dalimited) %> (税込)</td>
-  </tr>
-  <tr>
-      <td><%= @menu.menu_genre.name %></td>
-    </tr>
-    <tr>
-      <td>
-        <% if @menu.is_active == true %>
-        販売中
-        <% else %>
-        販売停止中
-        <% end %>
-      </td>
-    </tr>
-</table>
-
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>メニュー詳細</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card shadow-sm">
+      <div class="mx-auto">
+          <div class="card-body">
+            <% if @menu.image.attached? %>
+              <%= image_tag @menu.image, size: "200x200" %>
+            <% else %>
+              <%= image_tag asset_path('no_image.jpg'), size: "400x400" %>
+  　　      　<% end %>
+            <div class="card-title">
+              <%= @menu.name %>
+            </div>
+            <div class="card-title">
+              ¥<%= @menu.add_tax_price.to_s(:dalimited) %> (税込)</td>
+            </div>
+            <div class="card-title">
+              <%= @menu.menu_genre.name %>
+            </div>
+            <div class="card-title">
+              <% if @menu.is_active == true %>
+              販売中
+              <% else %>
+              販売停止中
+              <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
