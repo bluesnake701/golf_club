@@ -1,31 +1,37 @@
-<h1>商品一覧</h1>
-<table>
-  <% @items.each do |item| %>
-  <thead>
-    <tr>
-      <th>商品画像</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <%= link_to item_path(item.id) do %>
-          <% if item.image.attached? %>
-            <%= image_tag item.image, size: "100x100" %>
-          <% else %>
-            <%= image_tag asset_path('no_image.jpg'), size: "100x100" %>
-  　　    　<% end %>
-  　     <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td><%= item.name %></td>
-    </tr>
-    <tr>
-      <td>¥<%= item.add_tax_price.to_s(:dalimited) %> (税込)</td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>商品一覧</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto">
+      <table class="table">
+        <% @items.each do |item| %>
+          <thead>
+            <tr>
+              <th scope="col">商品画像</th>
+              <th scope="col">商品名</th>
+              <th scope="col">税抜価格</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">
+                <%= link_to item_path(item.id) do %>
+                  <% if item.image.attached? %>
+                    <%= image_tag item.image, size: "100x100" %>
+                  <% else %>
+                    <%= image_tag asset_path('no_image.jpg'), size: "100x100" %>
+  　　            　<% end %>
+  　             <% end %>
+              </td>
+              <td scope="row"><%= item.name %></td>
+              <td scope="row">¥<%= item.price.to_s(:dalimited) %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
