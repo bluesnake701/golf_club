@@ -2,27 +2,33 @@
   <div class="row">
     <div class="mx-auto">
       <h1>コース紹介</h1>
-      <table>
-        <tr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto">
+      <div style="margin: 50px">
         <% if @course.image.attached? %>
-          <td><%= image_tag @course.image, size: "200x200" %></td>
+          <%= image_tag @course.image %>
         <% else %>
-          </td><%= image_tag asset_path('no_image.jpg'), size: "200x200" %></td>
+          <%= image_tag asset_path('no_image.jpg'), size: "200x200" %>
         <% end %>
-        </tr>
-        <tr>
-          <td>ホール<%= @course.hole %></td>
-        </tr>
-        <tr>
-          <td>par<%= @course.par %></td>
-        </tr>
-        <tr>
-          <td><%= @course.yard %>y</td>
-        </tr>
-        <tr>
-          <td><%= @course.introduction %></td>
-        </tr>
-      </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto">
+      <div class="col">
+        ホール<%= @course.hole %>
+      </div>
+      <div class="col">
+        par<%= @course.par %>
+      </div>
+      <div class="col">
+        <%= @course.yard %>y
+      </div>
+      <div class="col">
+        <%= @course.introduction %>
+      </div>
     </div>
   </div>
 </div>
