@@ -1,54 +1,52 @@
-<h1>商品詳細</h1>
-<%= form_with model: @cart_item, url: cart_items_path do |f| %>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>商品詳細</h1>
+    </div>
+  </div>
+  <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+  <div class="row">
+    <div class="mx-auto">
+      <div style="margin: 50px">
         <% if @item.image.attached? %>
-          <%= image_tag @item.image, size: "200x200" %>
+          <%= image_tag @item.image, size: "400x400" %>
         <% else %>
-          <%= image_tag asset_path('no_image.jpg'), size: "200x200" %>
+          <%= image_tag asset_path('no_image.jpg'), size: "400x400" %>
   　　  　<% end %>
-      </td>
-    </tr>
-    <tr>
-      <td><%= @item.name %></td>
-    </tr>
-    <tr>
-      <td><%= @item.item_genre_id %></td>
-    </tr>
-    <tr>
-      <td><%= @item.introduction %></td>
-    </tr>
-    <tr>
-      <td>¥<%= @item.add_tax_price.to_s(:dalimited) %> (税込)</td>
-    </tr>
-    <tr>
-      <td>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto">
+      <div class="col">
+        <%= @item.name %>
+      </div>
+      <div class="col">
+        <%= @item.item_genre_id %>
+      </div>
+      <div class="col">
+        <%= @item.introduction %>
+      </div>
+      <div class="col">
+        ¥<%= @item.add_tax_price.to_s(:dalimited) %> (税込)
+      </div>
+      <div class="col">
         <% if @item.is_active == true %>
         販売中
         <% else %>
         販売停止中
         <% end %>
-      </td>
-    </tr>
-
-    <% if customer_signed_in? %>
-      <%= f.hidden_field :item_id, :value => @item.id %>
-      <tr>
-        <td><%= f.select :amount, *[1..10] %></td>
-      </tr>
-      <%= f.hidden_field :customer_id, :value => current_customer.id %>
-      <tr>
-        <td><%= f.submit 'カートに入れる' %></td>
-      </tr>
-    <% else %>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
+      </div>
+      <div class="col">
+      <% if customer_signed_in? %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.select :amount, *[1..10] %>
+        <%= f.hidden_field :customer_id, :value => current_customer.id %>
+        <%= f.submit 'カートに入れる' %>
+      <% else %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
