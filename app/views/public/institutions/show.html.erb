@@ -1,19 +1,28 @@
-<h1>施設詳細</h1>
-<table>
-  <tr>
-    <td>
-      <% if @institution.image.attached? %>
-        <%= image_tag @institution.image, size: "200x200" %>
-      <% else %>
-        <%= image_tag asset_path('no_image.jpg'), size: "200x200" %>
-  　   <% end %>
-  　</td>
-  </tr>
-  <tr>
-    <td><%= @institution.name %></td>
-  </tr>
-  <tr>
-    <td><%= @institution.introduction %></td>
-  </tr>
-  <% end %>
-</table>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>施設詳細</h1>
+    </div>
+  </div>
+<div class="row">
+    <div class="mx-auto">
+      <div style="margin: 50px">
+        <% if @institution.image.attached? %>
+          <%= image_tag @institution.image, size: "400x400" %>
+        <% else %>
+          <%= image_tag asset_path('no_image.jpg'), size: "400x400" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto">
+      <div class="col">
+        <%= @institution.name %>
+      </div>
+      <div class="col">
+        <%= @institution.introduction %>
+      </div>
+    </div>
+  </div>
+</div>
