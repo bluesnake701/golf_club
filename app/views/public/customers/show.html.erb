@@ -27,7 +27,7 @@
               <%= @customer.email %>
             </div>
             <div class="card-title">
-              <%= link_to "編集する",  edit_information_path(current_customer) %>
+              <%= button_to "編集する",  {controller: 'customers', action: 'edit'}, {method: :get} %>
             </div>
           </div>
         </div>

@@ -6,7 +6,6 @@ class Public::ReservesController < ApplicationController
 
   def confirm
     @plan = Plan.find(params[:reserf][:plan_id])
-    #binding.pry
     @reserf = Reserf.new(reserf_params)
     @plans = Plan.where(customer_id: current_customer.id)
   end
