@@ -2,7 +2,11 @@
   <div class="row">
     <div class="mx-auto">
       <h1>配送先登録/一覧</h1>
+    </div>
+  </div>
 
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
       <% if @address.errors.any? %>
         <div class="alart">
           <%= @address.errors.count %>件のエラーが発生しました
@@ -15,6 +19,7 @@
       <% end %>
     </div>
   </div>
+
 
   <div class="row" style="margin: 20px">
     <div class="mx-auto">
@@ -59,7 +64,7 @@
 
   <div class="row" style="margin: 50px">
     <div class="mx-auto">
-      <table>
+      <table cellpadding="5">
         <thead>
           <tr>
             <th>郵便番号</th>
@@ -80,8 +85,10 @@
                 <%= address.name %>
               </td>
               <td>
-                <%= link_to "編集する",  edit_address_path(address.id) %>
-                <%= link_to "削除する", address_path(address.id), method: :delete %>
+                <%= button_to "編集する",  edit_address_path(address.id), method: :get %>
+              </td>
+              <td>
+                <%= button_to "削除する", address_path(address.id), method: :delete %>
               </td>
             </tr>
           <% end %>
