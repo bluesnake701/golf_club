@@ -11,6 +11,9 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = @address.postal_code
       @order.destination = @address.destination
       @order.name = @address.name
+    elsif params[:order][:address_option] == "1" && @order.postal_code? && @order.destination? && @order.name?
+    else
+      render :new
     end
   end
 
@@ -21,17 +24,20 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.status = 0
-    @order.save
-    current_customer.cart_items.each do |cart_item|
-      @order_detail = OrderDetail.new
-      @order_detail.item_id = cart_item.item_id
-      @order_detail.order_id = @order.id
-      @order_detail.price = cart_item.item.add_tax_price
-      @order_detail.amount = cart_item.amount
-      @order_detail.save
+    if @order.save
+      current_customer.cart_items.each do |cart_item|
+       @order_detail = OrderDetail.new
+       @order_detail.item_id = cart_item.item_id
+       @order_detail.order_id = @order.id
+       @order_detail.price = cart_item.item.add_tax_price
+       @order_detail.amount = cart_item.amount
+       @order_detail.save
+      end
+      current_customer.cart_items.destroy_all
+      redirect_to thanks_path
+    else
+      render :new
     end
-    current_customer.cart_items.destroy_all
-    redirect_to thanks_path
   end
 
   def index

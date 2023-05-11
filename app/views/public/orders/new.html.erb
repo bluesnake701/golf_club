@@ -7,6 +7,21 @@
 
   <div class="row" style="margin: 20px">
     <div class="mx-auto">
+      <% if @order.errors.any? %>
+        <div class="alart">
+          <%= @order.errors.count %>件のエラーが発生しました
+            <ul>
+              <% @order.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
       <h4>支払方法</h4>
     </div>
   </div>
@@ -24,7 +39,7 @@
     </div>
   </div>
 
-  <div class="row" style="margin: 5px">
+  <div class="row" style="margin: 20px">
     <div class="mx-auto">
       <h4>お届け先</h4>
     </div>
@@ -35,7 +50,7 @@
       <table>
         <tr>
           <td>
-            <%= f.radio_button :address_option, "0" %>
+            <%= f.radio_button :address_option, "0", {:checked => true} %>
             <%= f.label :address_id, "登録済み住所から選択" %>
             <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
           </td>
