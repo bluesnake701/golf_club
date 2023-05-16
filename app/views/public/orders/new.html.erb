@@ -7,12 +7,17 @@
 
   <div class="row" style="margin: 20px">
     <div class="mx-auto">
-      <% if flash[:error] %>
-		    <div id="error_explanation">
-			    <p><%= flash[:error] %></p>
-		    </div>
-	    <% end %>
-	  </div>
+      <% if @order.errors.any? %>
+      <div class="alart">
+        <%= @order.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @order.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+    </div>
   </div>
 
   <div class="row" style="margin: 20px">
