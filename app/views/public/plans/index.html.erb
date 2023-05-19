@@ -1,23 +1,35 @@
-<h1>プラン一覧</h1>
-<table>
-  <thead>
-    <tr>
-      <th>プランID</th>
-      <th>プラン名</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @plans.each do |plan| %>
-    <tr>
-      <td><%= plan.id %></td>
-      <td>
-        <%= link_to plan_path(plan.id) do %>
-          <%= plan.plan_name %>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>プラン一覧</h1>
+    </div>
+  </div>
 
-<%= paginate @plans %>
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <table cellpadding="5">
+        <thead>
+          <tr>
+            <th>プランID</th>
+            <th>プラン名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @plans.each do |plan| %>
+            <tr>
+              <td><%= plan.id %></td>
+              <td>
+                <%= link_to plan_path(plan.id) do %>
+                  <%= plan.plan_name %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= paginate @plans %>
+
+    </div>
+  </div>
+</div>
