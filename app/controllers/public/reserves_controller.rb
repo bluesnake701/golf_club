@@ -27,7 +27,9 @@ class Public::ReservesController < ApplicationController
   end
 
   def show
-    @reserf = Reserf.find(params[:id])
+    @reserf = Reserf.find_by(params[:id])
+    @plan = @reserf.plan
+    @customer = @reserf.customer
   end
 
   def update
