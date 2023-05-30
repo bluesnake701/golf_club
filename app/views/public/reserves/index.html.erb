@@ -19,7 +19,7 @@
           <% @reserves.each do |reserf| %>
             <tr>
               <td>
-                <%= link_to plan_reserves_path(reserf.id) do %>
+                <%= link_to plan_reserf_path(@plan, reserf.id) do %>
                   <%= reserf.created_at.strftime('%Y/%m/%d') %>
                 <% end %>
               </td>
