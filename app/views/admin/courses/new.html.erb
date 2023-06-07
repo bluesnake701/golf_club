@@ -1,39 +1,57 @@
-<h1>新コース登録</h1>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>新コース登録</h1>
+    </div>
+  </div>
 
-<% if @course.errors.any? %>
-<div class="alart">
-  <%= @course.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @course.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <div style="margin: 50px">
+        <% if @course.errors.any? %>
+          <div class="alart">
+            <%= @course.errors.count %>件のエラーが発生しました
+              <ul>
+                <% @course.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <div style="margin: 50px">
+        <%= form_with model: @course, url: admin_courses_path do |f| %>
+          <table border=”1″ cellpadding="10">
+            <tr>
+              <td><%= f.file_field :image, accept: "image/*" %></td>
+            </tr>
+            <tr>
+　            <td><%= f.label :hole, "ホール" %></td>
+　            <td><%= f.text_field :hole %></td>
+            </tr>
+            <tr>
+　            <td><%= f.label :par, "パー" %></td>
+　            <td>par<%= f.text_field :par %></td>
+            </tr>
+            <tr>
+　            <td><%= f.label :yard, "ヤード" %></td>
+　            <td><%= f.text_field :yard %>y</td>
+            </tr>
+            <tr>
+　            <td><%= f.label :introduction, "コース説明文" %></td>
+　            <td><%= f.text_area :introduction %></td>
+            </tr>
+            <tr>
+　            <td><%= f.submit '新規登録' %></td>
+　          </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-<% end %>
-
-<%= form_with model: @course, url: admin_courses_path do |f| %>
-<table>
-  <tr>
-    <td><%= f.file_field :image, accept: "image/*" %></td>
-  </tr>
-  <tr>
-　  <td><%= f.label :hole, "ホール" %></td>
-　  <td><%= f.text_field :hole %></td>
-  </tr>
-  <tr>
-　  <td><%= f.label :par, "パー" %></td>
-　  <td>par<%= f.text_field :par %></td>
-  </tr>
-  <tr>
-　  <td><%= f.label :yard, "ヤード" %></td>
-　  <td><%= f.text_field :yard %>y</td>
-  </tr>
-  <tr>
-　  <td><%= f.label :introduction, "コース説明文" %></td>
-　  <td><%= f.text_area :introduction %></td>
-  </tr>
-  <tr>
-　  <td><%= f.submit '新規登録' %></td>
-　</tr>
-</table>
-<% end %>
