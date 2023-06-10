@@ -1,42 +1,54 @@
-<h1>
-  <%= @customer.last_name %>
-  <%= @customer.first_name %>
-  さんの会員詳細
-</h1>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>
+        <%= @customer.last_name %>
+        <%= @customer.first_name %>
+        さんの会員詳細
+      </h1>
+    </div>
+  </div>
 
-<table>
-  <tr>
-    <td>会員ID</td>
-    <td><%= @customer.id %></td>
-  </tr>
-  <tr>
-    <td>氏名</td>
-    <td>
-      <%= @customer.last_name %>
-      <%= @customer.first_name %>
-    </td>
-  </tr>
-  <tr>
-    <td>フリガナ</td>
-    <td>
-        <%= @customer.last_name_kana %>
-    　　<%= @customer.first_name_kana %>
-    </td>
-  </tr>
-  <tr>
-    <td>メールアドレス</td>
-    <td><%= @customer.email %></td>
-  </tr>
-  <tr>
-    <td>会員ステータス</td>
-    <td>
-    　　<% if @customer.is_active == true %>
-　　　　有効
-　　　　<% else %>
-　　　　退会
-　　　　<% end %>
-    </td>
-  </tr>
-</table>
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <div style="margin: 50px">
+        <table border=”1″ cellpadding="10">
+          <tr>
+            <td>会員ID</td>
+            <td><%= @customer.id %></td>
+          </tr>
+          <tr>
+            <td>氏名</td>
+            <td>
+              <%= @customer.last_name %>
+              <%= @customer.first_name %>
+            </td>
+          </tr>
+          <tr>
+            <td>フリガナ</td>
+            <td>
+              <%= @customer.last_name_kana %>
+              <%= @customer.first_name_kana %>
+            </td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @customer.email %></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td>
+              <% if @customer.is_active == true %>
+　　　　        有効
+　　　　      <% else %>
+　　　　        退会
+　　　　      <% end %>
+            </td>
+          </tr>
+        </table>
 
-<%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
+        <%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
+      </div>
+    </div>
+  </div>
+</div>

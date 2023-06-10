@@ -1,40 +1,59 @@
-<h1>会員情報編集</h1>
-<%= form_with model:@customer, url: admin_customer_path(@customer.id) do |f| %>
-  <table>
-    <thead>
-				<th></th>
-				<th></th>
-				<th></th>
-		</thead>
-		<tbody>
-		  <tr>
-		    <td>名前</td>
-		    <td><%= f.label :last_name, "(名)" %> <%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
-		    <td><%= f.label :first_name, "(姓)" %> <%= f.text_field :first_name, :placeholder =>"#{@customer.first_name}" %></td>
-		  </tr>
-		  <tr>
-		    <td>フリガナ</td>
-		    <td><%= f.label :last_name_kana, "(名)" %> <%= f.text_field :last_name_kana, :placeholder =>"#{@customer.last_name_kana}" %></td>
-		    <td><%= f.label :first_name_kana, "(姓)" %> <%= f.text_field :first_name_kana, :placeholder =>"#{@customer.first_name_kana}" %></td>
-		  </tr>
-      <tr>
-        <td>メールアドレス</td>
-        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-      </tr>
-      <tr>
-        <td>会員ステータス</td>
-        <td>
-          <%= f.radio_button :is_active, 1 %>
-          <%= f.label :is_active, "有効", {value: true} %>
-        </td>
-        <td>
-          <%= f.radio_button :is_active, "false" %>
-          <%= f.label :is_active, "退会", {value: false} %>
-        </td>
-      </tr>
-      <tr>
-        <td><%= f.submit "編集内容を保存する" %></td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>会員情報編集</h1>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <% if @customer.errors.any? %>
+      <div class="alart">
+        <%= @customer.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @customer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= form_with model:@customer, url: admin_customer_path(@customer.id) do |f| %>
+        <table cellpadding="10">
+		      <tr>
+		        <td>名前</td>
+		        <td><%= f.label :last_name, "(名)" %> <%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
+		        <td><%= f.label :first_name, "(姓)" %> <%= f.text_field :first_name, :placeholder =>"#{@customer.first_name}" %></td>
+		      </tr>
+		      <tr>
+		        <td>フリガナ</td>
+		        <td><%= f.label :last_name_kana, "(名)" %> <%= f.text_field :last_name_kana, :placeholder =>"#{@customer.last_name_kana}" %></td>
+		        <td><%= f.label :first_name_kana, "(姓)" %> <%= f.text_field :first_name_kana, :placeholder =>"#{@customer.first_name_kana}" %></td>
+		      </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td>
+              <%= f.radio_button :is_active, 1 %>
+              <%= f.label :is_active, "有効", {value: true} %>
+            </td>
+            <td>
+              <%= f.radio_button :is_active, "false" %>
+              <%= f.label :is_active, "退会", {value: false} %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= f.submit "編集内容を保存する" %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
