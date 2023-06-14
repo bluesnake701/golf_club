@@ -1,33 +1,48 @@
-<h1>メニュー詳細</h1>
-<table>
-  <tr>
-    <td>
-      <% if @menu.image.attached? %>
-        <%= image_tag @menu.image, size: "200x200" %>
-      <% else %>
-        <%= image_tag asset_path('no_image.jpg'), size: "200x200" %>
-  　　　<% end %>
-    </td>
-  </tr>
-  <tr>
-    <td><%= @menu.name %></td>
-  </tr>
-  <tr>
-    <td><%= @menu.add_tax_price.to_s(:dalimited) %> (<%= @menu.price %>) 円</td>
-  </tr>
-  <tr>
-    <td><%= @menu.menu_genre.name %></td>
-  </tr>
-  <tr>
-    <td>
-      <% if @menu.is_active == true %>
-      販売中
-      <% else %>
-      販売停止中
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td><%= link_to 'メニュー編集', edit_admin_menu_path(@menu.id) %></td>
-  </tr>
-</table>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>メニュー詳細</h1>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <table cellpadding="5" border=”1″>
+        <tr>
+          <td>
+            <% if @menu.image.attached? %>
+              <%= image_tag @menu.image, size: "200x200" %>
+            <% else %>
+              <%= image_tag asset_path('no_image.jpg'), size: "200x200" %>
+  　　      　<% end %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= @menu.name %></td>
+        </tr>
+        <tr>
+          <td><%= @menu.add_tax_price.to_s(:dalimited) %> (<%= @menu.price %>) 円</td>
+        </tr>
+        <tr>
+          <td><%= @menu.menu_genre.name %></td>
+        </tr>
+        <tr>
+          <td>
+            <% if @menu.is_active == true %>
+              販売中
+            <% else %>
+              販売停止中
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= link_to 'メニュー編集', edit_admin_menu_path(@menu.id) %>
+    </div>
+  </div>
+
+
