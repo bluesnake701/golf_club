@@ -1,17 +1,30 @@
-<h1>料理ジャンル編集</h1>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>料理ジャンル編集</h1>
+    </div>
+  </div>
 
-<% if @menu_genre.errors.any? %>
-<div class="alart">
-  <%= @menu_genre.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @menu_genre.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+  <% if @menu_genre.errors.any? %>
+    <div class="row" style="margin: 20px">
+      <div class="mx-auto">
+        <div class="alart">
+          <%= @menu_genre.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @menu_genre.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= form_with model: @menu_genre, url: admin_menu_genre_path(@menu_genre.id) do |f| %>
+        <%= f.text_field :name %>
+        <%= f.submit '編集する' %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% end %>
-
-<%= form_with model: @menu_genre, url: admin_menu_genre_path(@menu_genre.id) do |f| %>
- <%= f.text_field :name %>
- <%= f.submit '編集する' %>
-<% end %>
