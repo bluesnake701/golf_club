@@ -5,26 +5,25 @@
     </div>
   </div>
 
-  <div class="row" style="margin: 20px">
-    <div class="mx-auto">
-      <div style="margin: 50px">
-        <% if @course.errors.any? %>
-          <div class="alart">
-            <%= @course.errors.count %>件のエラーが発生しました
-              <ul>
-                <% @course.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-          </div>
-        <% end %>
+  <% if @course.errors.any? %>
+    <div class="row" style="margin: 20px">
+      <div class="mx-auto">
+        <div class="alart">
+          <%= @course.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @course.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+        </div>
       </div>
     </div>
+  <% end %>
+
   </div>
 
   <div class="row" style="margin: 20px">
     <div class="mx-auto">
-      <div style="margin: 50px">
         <%= form_with model: @course, url: admin_course_path(@course.id) do |f| %>
           <table border=”1″ cellpadding="10">
             <tr>
