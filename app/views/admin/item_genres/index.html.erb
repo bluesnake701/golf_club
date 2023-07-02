@@ -1,27 +1,48 @@
-<h1>商品ジャンル一覧・追加</h1>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>商品ジャンル一覧・追加</h1>
+    </div>
+  </div>
 
-<% if @item_genre.errors.any? %>
-<div class="alart">
-  <%= @item_genre.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @item_genre.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-<%= form_with model: @item_genre, url: admin_item_genres_path do |f| %>
- <%= f.text_field :name %>
- <%= f.submit '新規登録' %>
-<% end %>
-<table>
-  <% @item_genres.each do |item_genre| %>
-  <tr>
-    <td><%= item_genre.name %></td>
-    <td><%= link_to "ジャンル編集", edit_admin_item_genre_path(item_genre.id) %></td>
-  </tr>
+  <% if @item_genre.errors.any? %>
+    <div class="row" style="margin: 20px">
+      <div class="mx-auto">
+        <div class="alart">
+          <%= @item_genre.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @item_genre.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
   <% end %>
-</table>
 
-<%= paginate @item_genres %>
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= form_with model: @item_genre, url: admin_item_genres_path do |f| %>
+        <%= f.text_field :name %>
+        <%= f.submit '新規登録' %>
+      <% end %>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <table cellpadding="5">
+        <% @item_genres.each do |item_genre| %>
+        <tr>
+          <td><%= item_genre.name %></td>
+          <td><%= button_to "ジャンル編集", edit_admin_item_genre_path(item_genre.id), method: :get %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= paginate @item_genres %>
+    </div>
+  </div>
+</div>

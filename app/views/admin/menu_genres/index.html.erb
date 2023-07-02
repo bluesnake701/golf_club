@@ -30,11 +30,15 @@
         <% @menu_genres.each do |menu_genre| %>
           <tr>
             <td><%= menu_genre.name %></td>
-            <td><%= link_to "ジャンル編集", edit_admin_menu_genre_path(menu_genre.id) %></td>
+            <td><%= button_to "ジャンル編集", edit_admin_menu_genre_path(menu_genre.id), method: :get %></td>
           </tr>
         <% end %>
       </table>
+    </div>
+  </div>
 
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
       <%= paginate @menu_genres %>
     </div>
   </div>
