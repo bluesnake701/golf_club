@@ -1,0 +1,23 @@
+<% if @menu_genre.errors.any? %>
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <div class="alart">
+        <%= @menu_genre.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @menu_genre.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row" style="margin: 20px">
+  <div class="mx-auto">
+    <%= form_with model: @menu_genre, url: url do |f| %>
+      <%= f.text_field :name %>
+      <%= f.submit submit %>
+    <% end %>
+  </div>
+</div>

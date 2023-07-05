@@ -5,27 +5,10 @@
     </div>
   </div>
 
-  <% if @menu_genre.errors.any? %>
-    <div class="row" style="margin: 20px">
-      <div class="mx-auto">
-        <div class="alart">
-          <%= @menu_genre.errors.count %>件のエラーが発生しました
-          <ul>
-            <% @menu_genre.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'form', item_genre: @menu_genre, url: admin_menu_genres_path, submit: '新規登録' %>
 
-<div class="row" style="margin: 20px">
+  <div class="row" style="margin: 20px">
     <div class="mx-auto">
-      <%= form_with model: @menu_genre, url: admin_menu_genres_path do |f| %>
-        <%= f.text_field :name %>
-        <%= f.submit '新規登録' %>
-      <% end %>
       <table cellpadding="5">
         <% @menu_genres.each do |menu_genre| %>
           <tr>
