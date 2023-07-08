@@ -1,21 +1,35 @@
-<h1>施設詳細</h1>
-<table>
-  <tr>
-    <td>
-      <% if @institution.image.attached? %>
-       <%= image_tag @institution.image, size: "200x200" %>
-      <% else %>
-       <%= image_tag asset_path('no_image.jpg'), size: "200x200" %>
-  　   <% end %>
-  　</td>
-  </tr>
-  <tr>
-    <td><%= @institution.name %></td>
-  </tr>
-  <tr>
-    <td><%= @institution.introduction %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "施設編集", edit_admin_institution_path(@institution.id) %></td>
-  </tr>
-</table>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>施設詳細</h1>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <table cellpadding="5" border=”1″>
+        <tr>
+          <td>
+            <% if @institution.image.attached? %>
+              <%= image_tag @institution.image, size: "200x200" %>
+            <% else %>
+              <%= image_tag asset_path('no_image.jpg'), size: "200x200" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= @institution.name %></td>
+        </tr>
+        <tr>
+          <td><%= @institution.introduction %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= button_to "施設編集", edit_admin_institution_path(@institution.id), method: :get %>
+    </div>
+  </div>
+</div>
