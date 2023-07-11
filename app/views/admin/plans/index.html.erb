@@ -1,22 +1,38 @@
-<h1>プラン一覧</h1>
-<%= link_to 'プラン登録', new_admin_plan_path %>
-<table>
-  <thead>
-    <tr>
-      <th>プランID</th>
-      <th>プラン名</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @plans.each do |plan| %>
-    <tr>
-      <td><%= plan.id %></td>
-      <td>
-        <%= link_to admin_plan_path(plan.id) do %>
-          <%= plan.plan_name %>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div class="mx-auto">
+      <h1>プラン一覧</h1>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= button_to 'プラン登録', new_admin_plan_path, method: :get %>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <table cellpadding="5" border=”1″>
+        <thead>
+          <tr>
+            <th>プランID</th>
+            <th>プラン名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @plans.each do |plan| %>
+            <tr>
+              <td><%= plan.id %></td>
+              <td>
+                <%= link_to admin_plan_path(plan.id) do %>
+                  <%= plan.plan_name %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
