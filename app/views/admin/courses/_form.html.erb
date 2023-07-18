@@ -15,7 +15,7 @@
 
   <div class="row" style="margin: 20px">
     <div class="mx-auto">
-      <%= form_with model: @course, url: admin_courses_path do |f| %>
+      <%= form_with model: @course, url: url do |f| %>
         <table border=”1″ cellpadding="10">
           <tr>
             <td><%= f.file_field :image, accept: "image/*" %></td>
@@ -39,10 +39,10 @@
         </table>
     </div>
   </div>
-        
+
   <div class="row" style="margin: 20px">
     <div class="mx-auto">
-        <%= f.submit '新規登録' %>
+        <%= f.submit submit %>
       <% end %>
     </div>
   </div>

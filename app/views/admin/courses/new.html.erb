@@ -5,52 +5,6 @@
     </div>
   </div>
 
-  <% if @course.errors.any? %>
-    <div class="row" style="margin: 20px">
-      <div class="mx-auto">
-        <div class="alart">
-          <%= @course.errors.count %>件のエラーが発生しました
-          <ul>
-            <% @course.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'form', course: @course, url: admin_courses_path, submit: '新規登録' %>
 
-  <div class="row" style="margin: 20px">
-    <div class="mx-auto">
-      <%= form_with model: @course, url: admin_courses_path do |f| %>
-        <table border=”1″ cellpadding="10">
-          <tr>
-            <td><%= f.file_field :image, accept: "image/*" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :hole, "ホール" %></td>
-            <td><%= f.text_field :hole %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :par, "パー" %></td>
-            <td>par<%= f.text_field :par %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :yard, "ヤード" %></td>
-            <td><%= f.text_field :yard %>y</td>
-          </tr>
-          <tr>
-            <td><%= f.label :introduction, "コース説明文" %></td>
-            <td><%= f.text_area :introduction %></td>
-          </tr>
-        </table>
-    </div>
-  </div>
-        
-  <div class="row" style="margin: 20px">
-    <div class="mx-auto">
-        <%= f.submit '新規登録' %>
-      <% end %>
-    </div>
-  </div>
 </div>

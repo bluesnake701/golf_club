@@ -41,7 +41,7 @@
 
   <div class="row" style="margin: 20px">
     <div class="mx-auto">
-      <%= link_to 'メニュー編集', edit_admin_menu_path(@menu.id) %>
+      <%= button_to 'メニュー編集', edit_admin_menu_path(@menu.id), method: :get %>
     </div>
   </div>
 

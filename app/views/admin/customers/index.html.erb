@@ -8,40 +8,42 @@
   <div class="row" style="margin: 20px">
     <div class="mx-auto">
       <table border=”1″ cellpadding="10">
-        <div style="margin: 50px">
-          <thead>
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
             <tr>
-              <th>会員ID</th>
-              <th>氏名</th>
-              <th>メールアドレス</th>
-              <th>ステータス</th>
+              <td><%= customer.id %></td>
+              <td>
+                <%= link_to admin_customer_path(customer.id) do %>
+                  <%= customer.last_name %>
+                  <%= customer.first_name %>
+                <% end %>
+              </td>
+              <td><%= customer.email %></td>
+              <td>
+                <% if customer.is_active == true %>
+                  有効
+                <% else %>
+                  退会
+                <% end %>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            <% @customers.each do |customer| %>
-              <tr>
-                <td><%= customer.id %></td>
-                <td>
-                  <%= link_to admin_customer_path(customer.id) do %>
-                    <%= customer.last_name %>
-                    <%= customer.first_name %>
-                  <% end %>
-                </td>
-                <td><%= customer.email %></td>
-                <td>
-                  <% if customer.is_active == true %>
-                    有効
-                  <% else %>
-                    退会
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
         <%= paginate @customers %>
-      </div>
     </div>
   </div>
 </div>

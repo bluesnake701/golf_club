@@ -20,17 +20,17 @@
   <div class="row" style="margin: 20px">
     <div class="mx-auto">
       <table cellpadding="5" border=”1″>
-        <% @items.each do |item| %>
-          <thead>
-            <tr>
-              <th>商品画像</th>
-              <th>商品名</th>
-              <th>税抜価格</th>
-              <th>ジャンル</th>
-              <th>販売ステータス</th>
-            </tr>
-          </thead>
-          <tbody>
+        <thead>
+          <tr>
+            <th>商品画像</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>販売ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
             <tr>
               <td>
                 <%= link_to admin_item_path(item.id) do %>
@@ -52,8 +52,8 @@
                 <% end %>
               </td>
             </tr>
-          </tbody>
-        <% end %>
+          <% end %>
+        </tbody>
       </table>
     </div>
   </div>
