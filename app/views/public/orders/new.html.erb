@@ -27,7 +27,7 @@
   </div>
   <div class="row" style="margin: 5px">
     <div class="mx-auto">
-      <%= form_with model: @order, url:orders_confirm_path do |f| %>
+      <%= form_with model: @order, url: orders_confirm_path do |f| %>
         <div class="float-left" style="margin: 10px">
           <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
           <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
