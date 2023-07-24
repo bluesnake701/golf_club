@@ -9,38 +9,9 @@
     <div class="mx-auto">
       <%= form_with model: @reserf, url: complete_path do |f| %>
         <table cellpadding="5">
-          <tr>
-            <td>プラン名</td>
-            <td><%= @plan.plan_name %></td>
-          </tr>
-          <tr>
-            <td>プレイ人数</td>
-            <td><%= @plan.player %>人</td>
-          </tr>
-          <tr>
-            <td>料金</td>
-            <td>¥<%= @plan.price %></td>
-          </tr>
-          <tr>
-            <td>ラウンド数</td>
-            <td><%= @plan.round_i18n %></td>
-          </tr>
-          <tr>
-            <td>昼食</td>
-            <td>¥<%= @plan.lunch_i18n %></td>
-          </tr>
-          <tr>
-            <td>カート</td>
-            <td><%= @plan.cart_i18n %></td>
-          </tr>
-          <tr>
-            <td>キャディー</td>
-            <td><%= @plan.caddy_i18n %></td>
-          </tr>
-          <tr>
-            <td>宿泊</td>
-            <td><%= @plan.lodging_i18n %></td>
-          </tr>
+
+          <%= render 'table', reserf: @reserf %>
+
           <tr>
             <td>開始日時</td>
             <td><%= @reserf.start.strftime("%Y/%m/%d %H:%M") %></td>
