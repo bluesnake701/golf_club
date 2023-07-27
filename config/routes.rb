@@ -36,9 +36,9 @@ Rails.application.routes.draw do
     resources :items, only:[:new, :index, :create, :show]
     resources :orders, only:[:new, :index, :show, :create]
     resources :plans, only:[:index, :show] do
-      resource :reserves, only:[:new, :show, :create, :update]
+      resource :reserves, only:[:new, :create, :update]
     end
-    resources :reserves, only:[:index]
+    resources :reserves, only:[:index, :show]
     resources :institutions, only:[:index, :show]
     resources :addresses, only:[:index, :create, :edit, :update, :destroy]
   end

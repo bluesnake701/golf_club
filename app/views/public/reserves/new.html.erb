@@ -8,9 +8,9 @@
     <div class="mx-auto">
       <%= form_with model: @reserf, url: reserves_confirm_path do |f| %>
         <table cellpadding="5">
-          
+
           <%= render 'table', reserf: @reserf %>
-          
+
           <tr>
             <td><%= f.label :start, "開始日時" %></td>
             <td><%= f.datetime_select :start, {}, class: 'form-control', style: 'display: inline-block;width: auto;' %></td>
