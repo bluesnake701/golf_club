@@ -5,27 +5,31 @@
     </div>
   </div>
 
-  <div class="row" style="margin: 20px">
+  <div class="row" style="margin-top: 20px">
     <div class="mx-auto">
       <h3>注文情報</h3>
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="margin-top: 20px">
     <div class="mx-auto">
       <div class="card shadow-sm">
         <div style="padding: 20px">
-          <table>
+          <table cellpadding="5">
             <tr>
               <th>注文日</th>
               <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
             </tr>
             <tr>
               <th>配送先</th>
-              <td>
-                〒<%= @order.postal_code %>
-　　　          <%= @order.destination %>
-　　　          <%= @order.name %>
-　　          </td>
+              <td>〒<%= @order.postal_code %></td>
+            </tr>
+            <tr>
+              <th></th>
+　　　        <td><%= @order.destination %></td>
+　　　      </tr>
+　　　      <tr>
+　　　        <th></th>
+　　　        <td><%= @order.name %></td>
             </tr>
             <tr>
               <th>支払方法</th>
@@ -41,38 +45,43 @@
     </div>
   </div>
 
-  <div class="row" style="margin-top: 50px">
+  <div class="row" style="margin-top: 60px">
     <div class="mx-auto">
       <h3>請求金額</h3>
     </div>
   </div>
   <div class="row" style="margin-top: 10px">
     <div class="mx-auto">
-      <table cellpadding="5">
-        <tr>
-          <th>商品合計</th>
-          <td>¥<%= @order.grand_total - @order.shipping_cost %></td>
-        </tr>
-        <tr>
-          <th>送料</th>
-          <td>¥800</td>
-        </tr>
-        <tr>
-          <th>請求金額</th>
-          <td>¥<%= @order.grand_total %></td>
-        </tr>
-      </table>
+      <div class="card shadow-sm">
+        <div style="padding: 20px">
+          <table cellpadding="10">
+            <tr>
+              <th>商品合計</th>
+              <td>¥<%= @order.grand_total - @order.shipping_cost %></td>
+            </tr>
+            <tr>
+              <th>送料</th>
+              <td>¥800</td>
+            </tr>
+            <tr>
+              <th>請求金額</th>
+              <td>¥<%= @order.grand_total %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="row" style="margin-top: 50px">
+  <div class="row" style="margin-top: 60px">
     <div class="mx-auto">
       <h3>注文内容</h3>
     </div>
   </div>
-  <div class="row" style="margin-top: 10px">
+
+  <div class="row" style="margin: 20px">
     <div class="mx-auto">
-      <table cellpadding="5">
+      <table cellpadding="5" border=”1″>
         <thead>
           <tr>
             <th>商品名</th>

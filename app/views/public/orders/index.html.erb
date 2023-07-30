@@ -7,11 +7,11 @@
 
 <div class="row" style="margin: 20px">
     <div class="mx-auto">
-      <table cellpadding="5">
+      <table cellpadding="10" border=”1″>
         <thead>
           <tr>
             <th>注文日</th>
-            <th>配送先</th>
+            <th>配送先氏名</th>
             <th>注文商品</th>
             <th>支払金額</th>
             <th>ステータス</th>
@@ -22,10 +22,7 @@
           <% @orders.each do |order| %>
             <tr>
               <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-              <td>〒<%= order.postal_code %></td>
-　　　        <td><%= order.destination %></td>
 　　　        <td><%= order.name %></td>
-              </td>
               <td>
                 <% order.order_details.each do |order_detail| %>
                   <%= order_detail.item.name %>
