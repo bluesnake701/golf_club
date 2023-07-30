@@ -23,7 +23,7 @@
   <div class="row" style="margin: 20px">
     <div class="mx-auto">
       <%= form_with model:@customer, url: update_information_path do |f| %>
-        <table>
+        <table cellpadding="15">
 		      <tr>
 		        <td>名前</td>
 		        <td><%= f.label :last_name, "(名)" %> <%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
@@ -39,13 +39,13 @@
             <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
           </tr>
           <tr>
+            <td></td>
             <td><%= f.submit "編集内容を保存する" %></td>
+        <% end %>
+
+            <td><%= button_to "退会する", {controller: 'customers', action: 'unsubscribe'}, {method: :get} %></td>
           </tr>
         </table>
-      <% end %>
-      <div>
-        <%= button_to "退会する", {controller: 'customers', action: 'unsubscribe'}, {method: :get} %>
-      </div>
     </div>
   </div>
 </div>
