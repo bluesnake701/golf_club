@@ -17,11 +17,13 @@
           </tr>
           <%= f.hidden_field :plan_id, :value => @plan.id %>
           <%= f.hidden_field :customer_id, :value => current_customer.id %>
-
-          <tr>
-            <td><%= f.submit '予約確認画面へ' %></td>
-          </tr>
         </table>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= f.submit '予約確認画面へ' %>
       <% end %>
     </div>
   </div>
