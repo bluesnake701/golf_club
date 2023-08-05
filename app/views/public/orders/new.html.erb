@@ -5,20 +5,22 @@
     </div>
   </div>
 
-  <div class="row" style="margin: 20px">
-    <div class="mx-auto">
-      <% if @order.errors.any? %>
-      <div class="alart">
+
+  <% if @order.errors.any? %>
+    <div class="row" style="margin: 20px">
+      <div class="mx-auto">
+        <div class="alart">
         <%= @order.errors.count %>件のエラーが発生しました
-        <ul>
-          <% @order.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+          <ul>
+            <% @order.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-      <% end %>
     </div>
-  </div>
+  <% end %>
+
 
   <div class="row" style="margin: 20px">
     <div class="mx-auto">
@@ -79,13 +81,14 @@
             <%= f.text_field :name %>
           </td>
         </tr>
-        <tr>
-          <td>
-            <%= f.hidden_field :customer_id, :value => current_customer.id %>
-            <%= f.submit '確認画面へ進む' %>
-          </td>
-        </tr>
       </table>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= f.hidden_field :customer_id, :value => current_customer.id %>
+      <%= f.submit '確認画面へ進む' %>
       <% end %>
     </div>
   </div>
