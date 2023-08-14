@@ -103,11 +103,13 @@
     <footer class="bg-dark text-white pt-5 pb-4">
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-md-4">
+          <%if customer_signed_in? %>
+          <% elsif admin_signed_in? %>
+          <% else %>
             <li>
               <%= link_to "管理者ログイン", new_admin_session_path, data: { 'turbolinks': false } %>
             </li>
-          </div>
+          <% end %>
         </div>
       </div>
     </footer>
