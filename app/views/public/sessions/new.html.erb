@@ -1,47 +1,66 @@
 <div class="container" style="padding: 20px">
   <div class="row">
     <div class="mx-auto">
-    <h2>ログイン</h2>
+      <h2>ログイン</h2>
+    </div>
+  </div>
 
-
-    <% flash&.each do |message_type, message| %>
-      <% unless message.in?(["translation missing: ja.devise.sessions.customer.signed_out", "translation missing: ja.devise.sessions.admin.signed_out"]) %>
-        <div class="alart alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-    <% end %>
-
-    <table>
-      <tbody>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <tr>
-          <td><%= f.label :email, "メールアドレス" %></td>
-        </tr>
-        <tr>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :password, "パスワード" %></td>
-        </tr>
-        <tr>
-          <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-        </tr>
-        <% if devise_mapping.rememberable? %>
-        <tr>
-          <td>
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </td>
-        </tr>
+  <% flash&.each do |message_type, message| %>
+    <div class="row" style="margin: 20px">
+      <div class="mx-auto">
+        <% unless message.in?(["translation missing: ja.devise.sessions.customer.signed_out", "translation missing: ja.devise.sessions.admin.signed_out"]) %>
+          <div class="alart alert-<%= message_type %>"><%= message %></div>
         <% end %>
-        <tr>
-          <td><%= f.submit "ログイン" %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+      </div>
+    </div>
+  <% end %>
 
-    <h4>会員登録がお済みでない方</h4>
-    <p><%= render "public/shared/links" %> から新規登録を行ってください。</p>
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <table cellpadding="5">
+        <tbody>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <tr>
+              <td><%= f.label :email, "メールアドレス" %></td>
+            </tr>
+            <tr>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :password, "パスワード" %></td>
+            </tr>
+            <tr>
+              <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+            </tr>
+          <% if devise_mapping.rememberable? %>
+            <tr>
+              <td>
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= f.submit "ログイン" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 50px">
+    <div class="mx-auto">
+      <h4>会員登録がお済みでない方</h4>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 10px">
+    <div class="mx-auto">
+      <p><%= render "public/shared/links" %> から新規登録を行ってください。</p>
     </div>
   </div>
 </div>
