@@ -1,44 +1,43 @@
 <div class="container" style="padding: 20px">
   <div class="row">
     <div class="mx-auto">
-    <h2>ログイン</h2>
-
-    <table>
-      <thead>
-				<th></th>
-				<th></th>
-				<th></th>
-	    </thead>
-      <tbody>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <tr>
-          <td><%= f.label :email, "メールアドレス" %></td>
-        </tr>
-        <tr>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :password, "パスワード" %></td>
-        </tr>
-        <tr>
-          <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-        </tr>
+      <h2>管理ログイン</h2>
+    </div>
+  </div>
+  
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <table cellpadding="5">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <tr>
+            <td><%= f.label :email, "メールアドレス" %></td>
+          </tr>
+          <tr>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :password, "パスワード" %></td>
+          </tr>
+          <tr>
+            <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+          </tr>
         <% if devise_mapping.rememberable? %>
-        <tr>
-          <td>
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </td>
-        </tr>
+          <tr>
+            <td>
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </td>
+          </tr>
         <% end %>
-        <tr>
-          <td><%= f.submit "ログイン" %></td>
-        </tr>
+      </table>
+    </div>
+  </div>
+         
+  <div class="row" style="margin: 10px">
+    <div class="mx-auto">
+      <%= f.submit "ログイン" %>
       <% end %>
-      </tbody>
-    </table>
-
-    <%= render "admin/shared/links" %>
+      <%= render "admin/shared/links" %>
     </div>
   </div>
 </div>

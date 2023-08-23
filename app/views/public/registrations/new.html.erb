@@ -1,21 +1,29 @@
 <div class="container" style="padding: 20px">
   <div class="row">
     <div class="mx-auto">
-    <h2>新規会員登録</h2>
+      <h2>新規会員登録</h2>
+    </div>
+  </div>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <div class="alart"><%= render "public/shared/error_messages", resource: resource %></div>
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class="alart"><%= render "public/shared/error_messages", resource: resource %></div>
+    </div>
+  </div>
 
-      <table>
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <table cellpadding="5">
 		    <tr>
 		      <td>名前</td>
-		      <td><%= f.label :last_name, "(名)" %> <%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
-		      <td><%= f.label :first_name, "(姓)" %> <%= f.text_field :first_name, :placeholder =>"#{@customer.first_name}" %></td>
+		      <td><%= f.label :last_name, "(姓)" %> <%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
+		      <td><%= f.label :first_name, "(名)" %> <%= f.text_field :first_name, :placeholder =>"#{@customer.first_name}" %></td>
 		    </tr>
 		    <tr>
 		      <td>フリガナ</td>
-		      <td><%= f.label :last_name_kana, "(名)" %> <%= f.text_field :last_name_kana, :placeholder =>"#{@customer.last_name_kana}" %></td>
-		      <td><%= f.label :first_name_kana, "(姓)" %> <%= f.text_field :first_name_kana, :placeholder =>"#{@customer.first_name_kana}" %></td>
+		      <td><%= f.label :last_name_kana, "(姓)" %> <%= f.text_field :last_name_kana, :placeholder =>"#{@customer.last_name_kana}" %></td>
+		      <td><%= f.label :first_name_kana, "(名)" %> <%= f.text_field :first_name_kana, :placeholder =>"#{@customer.first_name_kana}" %></td>
 		    </tr>
         <tr>
           <td>メールアドレス</td>
@@ -31,17 +39,23 @@
           <td>パスワード(確認用)</td>
           <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
         </tr>
-        <tr>
-          <td><%= f.submit "新規登録" %></td>
-        </tr>
       </table>
+    </div>
+  </div>
 
-    <% end %>
+  <div class="row" style="margin: 20px">
+    <div class="mx-auto">
+      <%= f.submit "新規登録" %>
+      <% end %>
+    </div>
+  </div>
 
-    <h4>既に登録済みの方</h4>
-    <p>
-    <%= render "public/shared/links" %> からログインしてください。
-    </p>
+  <div class="row" style="margin: 50px">
+    <div class="mx-auto">
+      <h4>既に登録済みの方</h4>
+      <p>
+        <%= render "public/shared/links" %> からログインしてください。
+      </p>
     </div>
   </div>
 </div>
