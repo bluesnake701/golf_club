@@ -17,19 +17,19 @@
   </div>
   <div class="row">
     <div class="mx-auto">
-      <table>
-      <div class="col">
-        ホール<%= @course.hole %>
-      </div>
-      <div class="col">
-        par<%= @course.par %>
-      </div>
-      <div class="col">
-        <%= @course.yard %>y
-      </div>
-      <div class="col">
-        <%= @course.introduction %>
-      </div>
+      <table cellpadding="10">
+        <tr>
+          <td>ホール<%= @course.hole %></td>
+        </tr>
+        <tr>
+          <td>par<%= @course.par %></td>
+        </tr>
+        <tr>
+          <td><%= @course.yard %>y</td>
+        </tr>
+        <tr>
+          <td><%= @course.introduction %></td>
+        </tr>
       </table>
     </div>
   </div>
