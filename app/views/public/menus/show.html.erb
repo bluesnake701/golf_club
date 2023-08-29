@@ -17,20 +17,26 @@
   </div>
   <div class="row">
     <div class="mx-auto">
-      <div class="col">
-        <%= @menu.name %>
-        ¥<%= @menu.add_tax_price.to_s(:dalimited) %> (税込)
-      </div>
-      <div class="col">
-        <%= @menu.menu_genre.name %>
-      </div>
-      <div class="col">
-        <% if @menu.is_active == true %>
-          販売中
-        <% else %>
-          販売停止中
-        <% end %>
-      </div>
+      <table cellpadding="5">
+        <tr>
+          <td>
+            <%= @menu.name %>
+            ¥<%= @menu.add_tax_price.to_s(:dalimited) %> (税込)
+          </td>
+        </tr>
+        <tr>
+          <td><%= @menu.menu_genre.name %></td>
+        </tr>
+        <tr>
+          <td>
+            <% if @menu.is_active == true %>
+              販売中
+            <% else %>
+              販売停止中
+            <% end %>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
